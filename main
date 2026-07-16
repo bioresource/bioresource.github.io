@@ -70,7 +70,7 @@
 <body>
   <main class="wrap">
     <nav class="nav" aria-label="Primary">
-      <a href="index.html">Home</a>
+      <a href="main.html">Home</a>
       <a href="my_people.html">People</a>
     </nav>
 
