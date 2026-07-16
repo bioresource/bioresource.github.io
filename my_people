@@ -1,0 +1,562 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="People of the Bioresource Process Control Engineering Research Group"
+    >
+
+    <title>People | Bioresource Process Control Engineering</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: #252525;
+            background: #f8faf7;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        .wrap {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 24px 0 60px;
+        }
+
+        /* Navigation */
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 9px 16px;
+            color: #315731;
+            background: #edf4e9;
+            border: 1px solid #d5e3cf;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .nav a:hover,
+        .nav a:focus {
+            color: #ffffff;
+            background: #477447;
+            border-color: #477447;
+        }
+
+        .nav a.active {
+            color: #ffffff;
+            background: #477447;
+            border-color: #477447;
+        }
+
+        .rule {
+            margin: 22px 0 46px;
+            border: 0;
+            border-top: 1px solid #dde4da;
+        }
+
+        /* Page heading */
+
+        .page-header {
+            max-width: 800px;
+            margin-bottom: 48px;
+        }
+
+        .page-header p {
+            margin: 0 0 8px;
+            color: #477447;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .page-header h1 {
+            margin: 0 0 16px;
+            color: #1f2b1f;
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.12;
+        }
+
+        .page-header .intro {
+            margin: 0;
+            color: #5c655b;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* People sections */
+
+        .people-section {
+            margin-top: 52px;
+        }
+
+        .people-section h2 {
+            margin: 0 0 24px;
+            padding-bottom: 12px;
+            color: #263326;
+            border-bottom: 2px solid #dfe6dc;
+            font-size: 28px;
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .person-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            background: #ffffff;
+            border: 1px solid #e0e6dd;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(35, 54, 35, 0.07);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .person-card::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #477447;
+            content: "";
+        }
+
+        .person-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(35, 54, 35, 0.12);
+        }
+
+        .person-info {
+            padding: 30px 26px 26px;
+        }
+
+        .person-category {
+            display: inline-block;
+            margin: 0 0 15px;
+            padding: 6px 11px;
+            color: #315731;
+            background: #edf4e9;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .person-info h3 {
+            margin: 0 0 12px;
+            color: #222c22;
+            font-size: 23px;
+            line-height: 1.3;
+        }
+
+        .person-affiliation,
+        .person-interest {
+            margin: 10px 0;
+            color: #596159;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .person-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .person-links a {
+            display: inline-block;
+            padding: 8px 14px;
+            color: #ffffff;
+            background: #477447;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .person-links a:hover,
+        .person-links a:focus {
+            background: #315731;
+        }
+
+        /* Alumni */
+
+        .alumni-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .alumni-item {
+            display: grid;
+            grid-template-columns: minmax(220px, 0.8fr) 1.5fr;
+            gap: 28px;
+            align-items: center;
+            padding: 22px 24px;
+            background: #ffffff;
+            border: 1px solid #e0e6dd;
+            border-left: 5px solid #477447;
+            border-radius: 10px;
+        }
+
+        .alumni-item h3 {
+            margin: 0 0 6px;
+            color: #263326;
+            font-size: 20px;
+        }
+
+        .alumni-item p {
+            margin: 4px 0;
+            color: #596159;
+        }
+
+        /* Footer */
+
+        .footer {
+            margin-top: 70px;
+            padding-top: 24px;
+            color: #697168;
+            border-top: 1px solid #dde4da;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Responsive design */
+
+        @media (max-width: 700px) {
+            .wrap {
+                width: min(100% - 28px, 1200px);
+                padding-top: 18px;
+            }
+
+            .nav {
+                gap: 8px;
+            }
+
+            .nav a {
+                padding: 8px 13px;
+            }
+
+            .rule {
+                margin-bottom: 36px;
+            }
+
+            .page-header {
+                margin-bottom: 38px;
+            }
+
+            .page-header .intro {
+                font-size: 16px;
+            }
+
+            .people-section {
+                margin-top: 42px;
+            }
+
+            .people-section h2 {
+                font-size: 25px;
+            }
+
+            .alumni-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <nav class="nav" aria-label="Primary navigation">
+            <a href="main.html">Home</a>
+
+            <a
+                href="my_cv.html"
+                class="active"
+                aria-current="page"
+            >
+                People
+            </a>
+        </nav>
+
+        <hr class="rule">
+
+        <header class="page-header">
+            <p>Bioresource Process Control Engineering</p>
+
+            <h1>Our People</h1>
+
+            <p class="intro">
+                Meet the researchers and students working together in the
+                Bioresource Process Control Engineering Research Group at
+                Universitas Gadjah Mada, Yogyakarta, Indonesia.
+            </p>
+        </header>
+
+        <section class="people-section">
+            <h2>Principal Investigator</h2>
+
+            <div class="people-grid">
+
+                <article class="person-card">
+                    <div class="person-info">
+
+                        <p class="person-category">
+                            Principal Investigator
+                        </p>
+
+                        <h3>Hanim Zuhrotul Amanah, PhD</h3>
+
+                        <p class="person-affiliation">
+                            Department of Agricultural and Biosystems Engineering
+                            <br>
+                            Universitas Gadjah Mada
+                            <br>
+                            Yogyakarta, Indonesia
+                        </p>
+
+                        <p class="person-interest">
+                            <strong>Research interests:</strong>
+                            Bioresource process engineering, non-destructive
+                            sensing, near-infrared spectroscopy, hyperspectral
+                            imaging, machine learning, mathematical modelling,
+                            and process control.
+                        </p>
+
+                        <div class="person-links">
+                            <a href="mailto:hanim_za@ugm.ac.id">
+                                Email
+                            </a>
+
+                            <a
+                                href="https://scholar.google.com/citations?user=6G2X51gAAAAJ&hl=id"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Google Scholar
+                            </a>
+
+                            <a
+                                href="https://orcid.org/0000-0003-2957-9039"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                ORCID
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="people-section">
+            <h2>Research Members</h2>
+
+            <div class="people-grid">
+
+                <article class="person-card">
+                    <div class="person-info">
+
+                        <p class="person-category">
+                            Master's Student
+                        </p>
+
+                        <h3>Dhevika Aji Nugraha, S.T.P</h3>
+
+                        <p class="person-affiliation">
+                            Department of Agricultural and Biosystems Engineering
+                            <br>
+                            Universitas Gadjah Mada
+                        </p>
+
+                        <p class="person-interest">
+                            <strong>Research topic:</strong>
+                            Near-infrared spectroscopy for the quality
+                            assessment of grains.
+                        </p>
+
+                        <div class="person-links">
+                            <a href="mailto:dhevika.aji2002@mail.ugm.ac.id">
+                                Email
+                            </a>
+                        </div>
+                          <h3>Istiqomah, S.T.P</h3>
+
+                        <p class="person-affiliation">
+                            Department of Agricultural and Biosystems Engineering
+                            <br>
+                            Universitas Gadjah Mada
+                        </p>
+
+                        <p class="person-interest">
+                            <strong>Research topic:</strong>
+                            Near-infrared spectroscopy for the quality
+                            assessment of grains.
+                        </p>
+
+                        <div class="person-links">
+                            <a href="mailto:istiqomah2003@mail.ugm.ac.id">
+                                Email
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+
+                <article class="person-card">
+                    <div class="person-info">
+
+                        <p class="person-category">
+                            Undergraduate Student
+                        </p>
+
+                        <h3>Member Name</h3>
+
+                        <p class="person-affiliation">
+                            Department of Agricultural and Biosystems Engineering
+                            <br>
+                            Universitas Gadjah Mada
+                        </p>
+
+                        <p class="person-interest">
+                            <strong>Research topic:</strong>
+                            Hyperspectral imaging and machine vision for food
+                            and agricultural applications.
+                        </p>
+
+                        <div class="person-links">
+                            <a href="mailto:member2@ugm.ac.id">
+                                Email
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+
+                <article class="person-card">
+                    <div class="person-info">
+
+                        <p class="person-category">
+                            Research Assistant
+                        </p>
+
+                        <h3>Member Name</h3>
+
+                        <p class="person-affiliation">
+                            Department of Agricultural and Biosystems Engineering
+                            <br>
+                            Universitas Gadjah Mada
+                        </p>
+
+                        <p class="person-interest">
+                            <strong>Research topic:</strong>
+                            Mathematical modelling, process automation, and
+                            intelligent control systems.
+                        </p>
+
+                        <div class="person-links">
+                            <a href="mailto:member3@ugm.ac.id">
+                                Email
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="people-section">
+            <h2>Alumni</h2>
+
+            <div class="alumni-list">
+
+                <article class="alumni-item">
+                    <div>
+                        <h3>Alumni Name</h3>
+
+                        <p>
+                            Undergraduate Student, 2023–2024
+                        </p>
+                    </div>
+
+                    <p>
+                        <strong>Research:</strong>
+                        Non-destructive quality assessment of agricultural
+                        products using spectroscopic techniques.
+                    </p>
+                </article>
+
+                <article class="alumni-item">
+                    <div>
+                        <h3>Alumni Name</h3>
+
+                        <p>
+                            Master's Student, 2023–2025
+                        </p>
+                    </div>
+
+                    <p>
+                        <strong>Research:</strong>
+                        Intelligent sensing and process control for biological
+                        and agricultural systems.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>
+                &copy; 2026 Bioresource Process Control Engineering.
+                All rights reserved.
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
+```
